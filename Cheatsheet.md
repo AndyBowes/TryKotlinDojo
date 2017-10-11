@@ -52,7 +52,7 @@ when (x){
    1 -> "1st"
    2 -> "2nd"
    3 -> "3rd"
-   else -> "$x th"
+   else -> "$y th"
 }
 
 when (){
