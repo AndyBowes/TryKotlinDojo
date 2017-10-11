@@ -35,6 +35,7 @@ class MyFirstClass(){
 ### Control of Flow
 Every statement returns a values
 
+#### Conditional Statements
 ```kotlin
 if (){
 
@@ -47,6 +48,7 @@ if (){
 val max = if (a > b) a else b
 ```
 
+#### When conditions - Poor man's pattern matching
 ```kotlin
 when (x){
    1 -> "1st"
@@ -61,6 +63,7 @@ when (){
 
 ```
 
+#### Iteration through  Sequences
 ```kotlin
 for (item in collection) print(item)
 for (i in 1..100) { ... }  
