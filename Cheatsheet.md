@@ -1,0 +1,93 @@
+## Basic Syntax
+
+
+### Data Types
+Everything is an object, no primitive types !!
+- Byte, Short, Int, Long
+- Float, Double
+- Char, String
+- Boolean
+
+NB - By default, data types will not allow nulls.  Suffix datatype by '?' to indicate nullable values.
+
+```kotlin
+var a:Int = null    <-- Generates compile error
+var b:Int? = null   <-- Nullable ```
+
+### Example Kotlin File
+
+```kotlin
+package my.demo
+
+import java.util.*
+
+fun sum(a: Int, b: Int) : Int {
+  return a + b
+}
+
+class MyFirstClass(){
+  fun generateId: String {
+    return
+  }
+}
+```
+
+### Control of Flow
+Every statement returns a values
+
+```kotlin
+if (){
+
+} else {
+
+} else {
+
+}
+
+val max = if (a > b) a else b
+```
+
+```kotlin
+when (x){
+   1 -> "1st"
+   2 -> "2nd"
+   3 -> "3rd"
+   else -> "$x th"
+}
+
+when (){
+  ->
+}
+
+```
+
+```kotlin
+for (item in collection) print(item)
+for (i in 1..100) { ... }  
+
+
+```
+
+
+### Function Definitions
+1. Simple
+1. Inferred Return Type
+1. Default Parameter Values
+1. Named Parameters
+
+### Functional Programming
+Functions can be declared as variables, passed as parameters and returned from functions.
+
+```
+
+```
+
+
+### Collections
+
+
+### More
+
+- Coroutines
+- Android
+- Native
