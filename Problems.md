@@ -13,8 +13,10 @@
 1. Extend your function to allow 3 & 5 to be optionally replaced by alternative integers
 
 
-### Problem C -
-
+### Problem C - Simplification of Java Classes
+3 Java classes (JAddress, JCompany, and jPerson) have been created in dojo.leeds.problem3.
+Convert these classes to Kotlin data classes to see how much boilerplate code can be removed.
+Remember that Kotlin allows multiple classes to be defined in a single file.
 
 ### Problem D - Working with Classes
 
