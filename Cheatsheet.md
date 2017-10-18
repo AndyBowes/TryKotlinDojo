@@ -1,4 +1,4 @@
-## Basic Syntax
+## Kotlin Basic Syntax Cheatsheet
 
 
 ### Data Types
@@ -12,7 +12,8 @@ NB - By default, data types will not allow nulls.  Suffix datatype by '?' to ind
 
 ```kotlin
 var a:Int = null    <-- Generates compile error
-var b:Int? = null   <-- Nullable ```
+var b:Int? = null   <-- Nullable 
+```
 
 ### Example Kotlin File
 
@@ -26,20 +27,17 @@ fun sum(a: Int, b: Int) : Int {
 }
 
 class MyFirstClass(){
-  fun generateId: String {
-    return
+  fun generateId(): String {
+    return 
   }
+  ...
 }
 ```
 
 ### Control of Flow
-Every statement returns a values
-
 #### Conditional Statements
 ```kotlin
 if (){
-
-} else {
 
 } else {
 
@@ -48,19 +46,24 @@ if (){
 val max = if (a > b) a else b
 ```
 
-#### When conditions - Poor man's pattern matching
+#### When conditions
 ```kotlin
-when (x){
+val ordinal = when (x){
    1 -> "1st"
    2 -> "2nd"
    3 -> "3rd"
-   else -> "$y th"
+   else -> "$(x)th"
 }
 
 when (){
   ->
 }
-
+```
+#### Loops
+```kotlin
+while (condition){
+  ....
+}
 ```
 
 #### Iteration through  Sequences
@@ -70,7 +73,6 @@ for (i in 1..100) { ... }
 
 
 ```
-
 
 ### Function Definitions
 1. Simple
@@ -85,6 +87,8 @@ Functions can be declared as variables, passed as parameters and returned from f
 
 ```
 
+### Lambda Functions
+
 
 ### Collections
 
@@ -94,3 +98,7 @@ Functions can be declared as variables, passed as parameters and returned from f
 - Coroutines
 - Android
 - Native
+
+## Further Reading
+
+
