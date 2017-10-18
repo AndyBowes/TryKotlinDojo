@@ -8,11 +8,14 @@ Everything is an object, no primitive types !!
 - Char, String
 - Boolean
 
+Root class is Any (similar to Java's Object).  Null values are instances of Nothing.
+
 NB - By default, data types will not allow nulls.  Suffix datatype by '?' to indicate nullable values.
 
 ```kotlin
 var a:Int = null    <-- Generates compile error
 var b:Int? = null   <-- Nullable 
+val c = "Welcome to Kotlin"  <-- Immutable value with inferred data type
 ```
 
 ### Example Kotlin File
@@ -37,10 +40,10 @@ class MyFirstClass(){
 ### Control of Flow
 #### Conditional Statements
 ```kotlin
-if (){
-
+if (response.isSuccess()){
+    processResponse(response)
 } else {
-
+    processError(response)
 }
 
 val max = if (a > b) a else b
@@ -53,6 +56,12 @@ val ordinal = when (x){
    2 -> "2nd"
    3 -> "3rd"
    else -> "$(x)th"
+}
+
+fun getWarmth(color: Color) = when(color) {
+    Color.RED, Color.ORANGE, Color.YELLOW -> "warm"
+    Color.GREEN -> "neutral"
+    Color.BLUE, Color.INDIGO, Color.VIOLET -> "cold"
 }
 
 when (){
