@@ -12,6 +12,7 @@
 1.  Invoke this function for a supplied of numbers i.e. 1..50
 1. Extend your function to allow 3 & 5 to be optionally replaced by alternative integers
 
+*Hint - x % 2 will return zero if x is divisible by 2*
 
 ### Problem C - Simplification of Java Classes
 3 Java classes (JAddress, JCompany, and jPerson) have been created in dojo.leeds.problem3.
@@ -36,3 +37,21 @@ Remember that Kotlin allows multiple classes to be defined in a single file.
   - Which students were awarded 3 grade 'A's?
   - Which students were awarded at least a 'C' in all subjects?
   - Which were the highest scoring Boy & Girl in each class?
+
+
+### Problem - Got to Catch Them All
+This problem demonstrates the ability 
+1. Create 
+
+### Problem - Coroutines
+It takes about 1 second to fetch the details of a Pokemon from the remote server.  If we want to retrieve multiple Pokemons then
+ it could take a long time if we fetch them sequentially.
+1. Create a method which 
+1. 
+
+
+### Useful Links
+
+- Pokemon API - https://pokeapi.co/docsv2/
+- Moshi Json Parser - https://github.com/square/moshi
+- Fuel Http Networking Library - https://github.com/kittinunf/Fuel
