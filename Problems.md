@@ -32,16 +32,39 @@ Remember that Kotlin allows multiple classes to be defined in a single file.
   - Count the number of pupils in the file.
   - Count the number of unique pupil names.
   - How many pupils are there in each class?
-  - Which
   - Which class has the highest average score per pupil?
   - Which students were awarded 3 grade 'A's?
   - Which students were awarded at least a 'C' in all subjects?
   - Which were the highest scoring Boy & Girl in each class?
 
 
-### Problem - Got to Catch Them All
-This problem demonstrates the ability 
-1. Create 
+### Problem - Got to Catch Them All (or at least 1 of them)
+This problem uses Kotlin to create a basic REST client using JSON over HTTP.
+ We will access the publicly available database of Pokemon and use a couple of libraries to assist us.
+ 
+Details of the Pokemon API can be found here: https://pokeapi.co/docsv2/#pokemon-section
+
+1. Create a Pokemon Data Class to hold the details of a Pokemon (start with just the basic details e.g. id, name, height, width)
+2. Test that JSON parser can be used to transform the supplied Pokemon JSON file  (TBD - give path) into an instance of your Pokemon data class
+3. Create a DAO class which will send an HTTP Get Request to ... to retrieve the details of a specific Pokemon
+4. Transform the JSON in the response into an instance of your Pokemon data class.
+5. Extend your Pokemon data class to add additional properties.
+
+
+```kotlin
+val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+            
+val pokemonAdapter = moshi.adapter(Pokemon::class.java)
+
+```
+
+```kotlin
+val headers = mapOf("User-Agent" to "Mozilla/5.0")
+val (request, response, result) = "http://myurl/..".httpGet().header(headers).responseString()
+```
+
 
 ### Problem - Coroutines
 It takes about 1 second to fetch the details of a Pokemon from the remote server.  If we want to retrieve multiple Pokemons then
