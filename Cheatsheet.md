@@ -41,8 +41,14 @@ Null Pointer Exceptions are one of the most common causes of errors in Java appl
 
    // Elvis Operator - Returns either the length of the String or -1 if b is null
    b?.length ?: -1
+   
+   // Null Chaining
+   val city = order?.customer?.address?.city
+   
+   val city = order?.customer?.address?.city
+                 ?: throw IllegalArgumentException("Invalid Order")
+   
 ```
-
 
 ### Example Kotlin File
 
