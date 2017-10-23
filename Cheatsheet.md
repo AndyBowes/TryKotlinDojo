@@ -1,6 +1,5 @@
 ## Kotlin Basic Syntax Cheatsheet
 
-
 ### Data Types
 Everything is an object, no primitive types !!
 - Byte, Short, Int, Long
@@ -15,10 +14,34 @@ NB - By default, data types will not allow nulls.  Suffix datatype by '?' to ind
 ```kotlin
 var a:Int = null    <-- Generates compile error
 var b:Int? = null   <-- Nullable 
-val c = "Welcome to Kotlin"  <-- Immutable value with inferred data type
+val c = "Welcome to Kotlin"  <-- Immutable value with inferred data type of String
 ```
 
 ### Handling Nulls
+Null Pointer Exceptions are one of the most common causes of errors in Java applications.
+ Kotlin has been designed to prevent these errors. 
+- Need to explicitly state that variable/parameter allows nulls
+- Unsafe calls on potentially null values are prevented by the compiler
+
+```kotlin
+   var a: String = "abc"
+   a = null // compilation error as variable does not allow null
+
+   var b: String? = "abc"
+   b = null // ok
+
+   b = getName()  // Call a function that returns a Nullable String
+   b.length // Compilation Error, invoking method on potentially Null Object
+   if (b != null){
+       b.length // Can now execute method on the variable
+   }
+
+   // Safe Call Operator - Returns length or Null as an Int?
+   var i = b?.length
+
+   // Elvis Operator - Returns either the length of the String or -1 if b is null
+   b?.length ?: -1
+```
 
 
 ### Example Kotlin File
@@ -39,6 +62,9 @@ class MyFirstClass(){
   ...
 }
 ```
+Note:
+- Multiple classes can be defined in a single file
+- Functions can be declared outside of classes.
 
 ### Control of Flow
 #### Conditional Statements
@@ -67,8 +93,10 @@ fun getWarmth(color: Color) = when(color) {
     Color.BLUE, Color.INDIGO, Color.VIOLET -> "cold"
 }
 
-when (){
-  ->
+when {
+  x is String ->
+  x is Int -> 
+  else 
 }
 ```
 #### Loops
@@ -82,7 +110,6 @@ while (condition){
 ```kotlin
 for (item in collection) print(item)
 for (i in 1..100) { ... }  
-
 ```
 
 ### Function Definitions
@@ -97,13 +124,12 @@ for (i in 1..100) { ... }
   // Default parameter values 
   fun sendHttpRequest(url: String,
                       method: String = "GET", 
-                      headers: Map<String:String>? = null) { 
+                      headers: Map<String,String>? = null) { 
                       ...
    }  
-  
-  // Named parameters
-  
-  
+  // Call method with named parameters
+  sendHttpRequest("http://test.mydomain.com/customer/1",
+                  headers = mapOf("Accept","application/json"))  
   ```
 
 ### Collections
@@ -142,26 +168,25 @@ The result is 6
 Lambda functions provide an alternative to Java's anonymous classesand are a convenient way to pass a functionality into functions.
 
 ```kotlin
-button.setOnClickListener { /* actions on click */ }
+button.setOnClickListener { alert("You clicked the button") }
 
 
 ```
 
 ### More
-We have just scratched the surface of this language 
+We have just scratched the surface of this language & there is plenty more to learn.
 - Coroutines - Lightweight threading which simplifies asynchronous programming
 - Android - One area where Kotlin is really making an impact
 - Native - Compilation to Native code to run on a variety of platforms 
 - Compilation to JavaScript
 
 ## Further Information
+- [Kotlin Language Official Documentation](http://kotlinlang.org/docs/reference/) - Online documentation
+- [Kotlin Koans](https://try.kotlinlang.org) - Short exercises to get you started with Kotlin
+- [Kotlin Slack Channel](kotlinlang.slack.com) - Official Slack channel for Kotlin.  Very friendly & helpful, frequented by JetBrains developers
 
-[Kotlin Language Official Documentation](http://kotlinlang.org/docs/reference/) - Online documentation
-[Kotlin Koans](https://try.kotlinlang.org) - Short exercises to get you started with Kotlin
-[Kotlin Slack Channel](kotlinlang.slack.com) - Official Slack channel for Kotlin.  Very friendly & helpful, frequented by JetBrains developers
-
-[Kotlin Yorkshire Meetup Group]()
+- [Kotlin Yorkshire Meetup Group]()
 
 #### Books
-[Kotlin in Action - Dmitry Jemerov and Svetlana Isakova](https://www.amazon.co.uk/Kotlin-Action-Dmitry-Jemerov/dp/1617293296)
-[Kotlin for Android Developers - Antonio Leiva](https://www.amazon.co.uk/Kotlin-Android-Developers-Learn-developing/dp/1530075610)
+- [Kotlin in Action - Dmitry Jemerov and Svetlana Isakova](https://www.amazon.co.uk/Kotlin-Action-Dmitry-Jemerov/dp/1617293296)
+- [Kotlin for Android Developers - Antonio Leiva](https://www.amazon.co.uk/Kotlin-Android-Developers-Learn-developing/dp/1530075610)
