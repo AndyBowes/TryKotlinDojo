@@ -99,23 +99,35 @@ fun getWarmth(color: Color) = when(color) {
     Color.BLUE, Color.INDIGO, Color.VIOLET -> "cold"
 }
 
-when {
-  x is String ->
-  x is Int -> 
-  else 
+// Type checking 
+when (e) {
+    is Num -> e.value
+    is Sum -> eval(e.right) + eval(e.left)
+    else -> throw IllegalArgumentException("Unknown expression")
 }
 ```
+
 #### Loops
 ```kotlin
 while (condition){
-  ....
+  /* .... */
 }
+
+do {
+    /*...*/
+} while (condition)
+
 ```
 
 #### Iteration through Collections, Sequences, & Ranges
 ```kotlin
 for (item in collection) print(item)
 for (i in 1..100) { ... }  
+
+val myMap = mapOf(....)
+for ((key, value) in myMap) {
+    println("$key = $value")
+}
 ```
 
 ### Function Definitions
@@ -154,7 +166,7 @@ val longestName = names.maxBy { it.length }
 ### Functional Programming
 Functions can be declared as variables, passed as parameters and returned from functions.
 
-``` kotlin
+```kotlin
 // Define a function which takes a function as a parameter & applies the function to 2 & 3
 fun twoAndThree(operation: (Int, Int) -> Int) {
     val result = operation(2, 3)
@@ -190,8 +202,9 @@ We have just scratched the surface of this language & there is plenty more to le
 - [Kotlin Language Official Documentation](http://kotlinlang.org/docs/reference/) - Online documentation
 - [Kotlin Koans](https://try.kotlinlang.org) - Short exercises to get you started with Kotlin
 - [Kotlin Slack Channel](kotlinlang.slack.com) - Official Slack channel for Kotlin.  Very friendly & helpful, frequented by JetBrains developers
+- [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines.html) - Introduction to Kotlin Coroutines
 
-- [Kotlin Yorkshire Meetup Group]()
+- [Kotlin Yorkshire Meetup Group](https://www.meetup.com/Kotlin-Yorkshire-Meetup-Group/) - Local Kotlin User Group
 
 #### Books
 - [Kotlin in Action - Dmitry Jemerov and Svetlana Isakova](https://www.amazon.co.uk/Kotlin-Action-Dmitry-Jemerov/dp/1617293296)
