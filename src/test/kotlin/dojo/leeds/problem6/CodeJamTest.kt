@@ -31,11 +31,6 @@ class HegemonyTest {
         assertThat(hegemony("1 2 2 2 2 2"), equalTo(1.937500))
     }
 
-    fun hegemony(input: String): Double {
-        val heights = input.split(" ").map { it.toDouble() }
-        return (1..(heights.size-2)).fold(heights[0], { r,t -> minOf( heights[t], (r + heights[t+1])/2.0)})
-    }
-
 }
 
 
