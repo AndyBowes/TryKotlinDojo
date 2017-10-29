@@ -1,4 +1,4 @@
-package dojo.leeds.problem5
+package dojo.leeds.problem4
 
 class PupilReader{
     fun readPupilFile(): List<String> {

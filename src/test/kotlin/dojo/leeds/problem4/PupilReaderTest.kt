@@ -1,4 +1,4 @@
-package dojo.leeds.problem5
+package dojo.leeds.problem4
 
 import org.hamcrest.CoreMatchers.not
 import org.hamcrest.CoreMatchers.nullValue
@@ -6,9 +6,6 @@ import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Assert.*
 import org.junit.Test
 
-/**
- * Created by andybowes on 15/10/2017.
- */
 class PupilReaderTest {
 
     val pupilReader = PupilReader()

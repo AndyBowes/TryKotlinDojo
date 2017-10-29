@@ -1,4 +1,30 @@
 ## Kotlin Basic Syntax Cheatsheet
+### Example Kotlin File
+
+```kotlin
+package my.demo
+
+import java.util.*
+
+fun main(args: Array<String>) {
+   ...
+}
+
+fun sum(a: Int, b: Int) : Int {
+  return a + b
+}
+
+class MyFirstClass(){
+  fun generateId(): String {
+    return 
+  }
+  ...
+}
+```
+Note:
+- Multiple classes can be defined in a single file
+- Name of file does **not** need to match class name
+- Functions can be declared outside of classes.
 
 ### Data Types
 Everything is an object, no primitive types !!
@@ -15,6 +41,9 @@ NB - By default, data types will not allow nulls.  Suffix datatype by '?' to ind
 var a:Int = null    <-- Generates compile error
 var b:Int? = null   <-- Nullable 
 val c = "Welcome to Kotlin"  <-- Immutable value with inferred data type of String
+
+\\ String Interpolation injects variables into Strings
+println("The current value is $a")
 ```
 
 ### Handling Nulls
@@ -50,27 +79,6 @@ Null Pointer Exceptions are one of the most common causes of errors in Java appl
    
 ```
 
-### Example Kotlin File
-
-```kotlin
-package my.demo
-
-import java.util.*
-
-fun sum(a: Int, b: Int) : Int {
-  return a + b
-}
-
-class MyFirstClass(){
-  fun generateId(): String {
-    return 
-  }
-  ...
-}
-```
-Note:
-- Multiple classes can be defined in a single file
-- Functions can be declared outside of classes.
 
 ### Control of Flow
 #### Conditional Statements
@@ -149,6 +157,21 @@ for ((key, value) in myMap) {
   sendHttpRequest("http://test.mydomain.com/customer/1",
                   headers = mapOf("Accept","application/json"))  
   ```
+  
+### Extension Functions
+Functions can be added to existing classes without needing to extend or subclass.
+These 'Extension Functions' are then available on all instances of that type.
+```kotlin
+
+fun String.toCamelCase() : String {
+   return this.split(' ')
+            .map { it -> it.toLowerCase()
+            .capitalize() }
+            .joinToString(separator = "")
+}
+
+"This is an example".toCamelCase() // returns ThisIsAnExample
+```
 
 ### Collections
 ```kotlin
@@ -161,6 +184,42 @@ names.map { name -> name.first() }
 names.map { it.length }
 names.filter{ it.length > 4 }.map{ name -> name.first() }
 val longestName = names.maxBy { it.length }
+```
+
+### Classes and Inheritance
+
+```kotlin
+class Customer(name: String) { 
+    init {
+        logger.info("Customer initialized with value ${name}")
+    }
+}
+
+val customer = Customer("Guy Edwards")
+
+// Define class with properties which can be accessed directly.
+class Book(val title:String, val author:String, val price:Float)
+fun createBook(){
+    val book = Book("Fly Fishing", "J R Hartley", 20.99f)
+    println(book.title)
+}
+
+interface Clickable {
+    fun click()
+}
+// ':' is used as equivalent to Java's 'extends' & 'implements'
+class Button : Clickable {
+    override fun click() = println("I was clicked")
+}
+```
+
+Data classes provide a simple way to create domain objects with standard Java methods such as equals,
+toString, hashCode, ...
+```kotlin
+data class Person(val id: String,
+    val forename: String,
+    val surname: String,
+    val dateOfBirth: Date)
 ```
 
 ### Functional Programming
@@ -183,11 +242,10 @@ The result is 6
 ```
 
 ### Lambda Functions
-Lambda functions provide an alternative to Java's anonymous classesand are a convenient way to pass a functionality into functions.
+Lambda functions provide an alternative to Java's anonymous classes and are a convenient way to pass a functionality into functions.
 
 ```kotlin
 button.setOnClickListener { alert("You clicked the button") }
-
 
 ```
 
