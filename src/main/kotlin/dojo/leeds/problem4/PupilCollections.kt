@@ -1,4 +1,4 @@
-package dojo.leeds.problem5
+package dojo.leeds.problem4
 
 class PupilReader{
     fun readPupilFile(): List<String> {
@@ -19,7 +19,6 @@ class PupilReader{
     fun fetchPupils() : List<Pupil>{
         return readPupilFile().map { convertToPupil(it) }
     }
-
 }
 
 enum class Grade {
@@ -45,4 +44,8 @@ data class Pupil(val name: String, val gender: String, val className: String,
     val grades : Map<Subject, Grade> = mapOf(Subject.ENGLISH to english.toGrade(),
             Subject.MATHS to maths.toGrade(),
             Subject.SCIENCE to science.toGrade())
+    val totalMarks = english + maths + science
 }
+
+fun Collection<Pupil>.byClass() = this.groupBy { it.className }  // Separate into Classes
+            .entries.sortedBy { it.key }  // Sort Classes by Name

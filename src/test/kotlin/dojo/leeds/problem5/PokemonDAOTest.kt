@@ -1,4 +1,4 @@
-package dojo.leeds.problem6
+package dojo.leeds.problem5
 
 import com.github.kittinunf.fuel.httpGet
 import com.squareup.moshi.KotlinJsonAdapterFactory
